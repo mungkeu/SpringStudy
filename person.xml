@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- setter를 사용한 의존성 주입 -->
+    <!--bean 태그를 이용해 PersonServiceImpl 객체(빈)를 생성한 후 빈 id를 personService로 지정한다.-->
+    <bean id="personService" class="com.spring.ex01.PersonServiceImpl">
+        <property name="name"><!--PersonServiceImpl 객체의 속성 name 값을 value 태그를 이용해 홍길동으로 초기화한다.-->
+            <value>홍길동</value>
+        </property>
+    </bean>
+
+    <!-- 생성자를 사용한 의존성 주입 -->
+    <!-- 인자가 한 개인 생성자로 id가 personService1인 빈을 생성한다. 생성자로 value인 이순신을 전달하여 속성 name을 초기화한다.-->
+    <bean id="personService1" class="com.spring.ex02.PersonServiceImpl">
+        <constructor-arg value="이순신"/>
+    </bean>
+
+    <!-- 인자가 두 개인 생성자로 id가 personService2인 빈을 생성한다. 생성자로 두 개의 값을 전달하여 name와 age를 초기화한다.-->
+    <bean id="personService2" class="com.spring.ex02.PersonServiceImpl">
+        <constructor-arg value="이순신"/>
+        <constructor-arg value="23"/>
+    </bean>
+</beans>
